@@ -11,14 +11,17 @@ class ProductController extends Controller
 {
 
     public function actionIndex(){
+        
+        $query = Product::find();
+         
         $products = Product::find()->all();
         
         $pagination = new Pagination([
             'defaultPageSize' => 2,
-            'totalCount' => Product::find()->count(),
+            'totalCount' => $query->count(),
         ]);
         
-        $products = Product::find()->orderBy('name')
+        $products = $query->orderBy('name')
             ->offset($pagination->offset)
             ->limit($pagination->limit)
             ->all();
