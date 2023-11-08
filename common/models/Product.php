@@ -15,7 +15,13 @@ class Product extends ActiveRecord
             [['name', 'price'], 'required'],
             [['name'], 'string'],
             [['price'], 'double'],
-            [['image_id'], 'integer']
+            [['image_id'], 'integer'],
+            [['description'], 'text'],
+            [['sku'], 'integer'],
+            [['barcode'], 'string'],
+            [['quantity'], 'integer'],
+            [['status'], 'integer'],
+            [['date_added'], 'datetime'],
         ];
     }
     
@@ -23,7 +29,14 @@ class Product extends ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Название',
-            'price' => 'Цена'
+            'price' => 'Цена',
+            'image_id' => 'ID изображения',
+            'description' => 'Описание',
+            'sku' => 'Артикул',
+            'barcode' => 'Штрихкод',
+            'quantity' => 'Количество',
+            'status' => 'Статус',
+            'date_added' => 'Когда добавлен',
         ];
     }
     
