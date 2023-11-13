@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `{{%product}}`.
  */
-class m231107_125945_create_product_table extends Migration
+class m231112_142222_create_product_table extends Migration
 {
     /**
      * {@inheritdoc}
@@ -15,7 +15,13 @@ class m231107_125945_create_product_table extends Migration
         $this->createTable('{{%product}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
+            'description' => $this->text(),
             'price' => $this->double()->notNull(),
+            'quantity' => $this->integer(),
+            'image_id' => $this->integer(),
+            'sku' => $this->integer(),
+            'barcode' => $this->string(18),
+            'date_added' => $this->datetime(),
         ]);
     }
 

@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `{{%image}}`.
  */
-class m231107_184758_create_image_table extends Migration
+class m231112_171113_create_image_table extends Migration
 {
     /**
      * {@inheritdoc}
@@ -13,7 +13,7 @@ class m231107_184758_create_image_table extends Migration
     public function safeUp()
     {
         $this->createTable('{{%image}}', [
-            'image_id' => $this->primaryKey(),
+            'id' => $this->primaryKey(),
             'url' => $this->string(),
         ]);
     }

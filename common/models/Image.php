@@ -23,6 +23,6 @@ class Image extends ActiveRecord
     }
     
     public function getProduct() {
-        return $this->hasOne(Product::class, ['image_id' => 'id']);
+        return $this->hasOne(Product::class, ['id' => 'id']);
     }
 }

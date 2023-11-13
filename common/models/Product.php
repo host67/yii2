@@ -14,13 +14,12 @@ class Product extends ActiveRecord
         return [
             [['name', 'price'], 'required'],
             [['name'], 'string'],
+            [['description'], 'string'],
             [['price'], 'double'],
+            [['quantity'], 'integer'],
             [['image_id'], 'integer'],
-            [['description'], 'text'],
             [['sku'], 'integer'],
             [['barcode'], 'string'],
-            [['quantity'], 'integer'],
-            [['status'], 'integer'],
             [['date_added'], 'datetime'],
         ];
     }
@@ -29,18 +28,17 @@ class Product extends ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Название',
-            'price' => 'Цена',
-            'image_id' => 'ID изображения',
             'description' => 'Описание',
+            'price' => 'Цена',
+            'quantity' => 'Количество',
+            'image_id' => 'ID изображения',
             'sku' => 'Артикул',
             'barcode' => 'Штрихкод',
-            'quantity' => 'Количество',
-            'status' => 'Статус',
             'date_added' => 'Когда добавлен',
         ];
     }
     
     public function getImage() {
-        return $this->hasOne(Image::class, ['id' => 'image_id']);
+        return $this->hasOne(Image::class, ['id' => 'id']);
     }
 }
