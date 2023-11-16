@@ -9,7 +9,7 @@ class Product extends ActiveRecord
     public static function tableName() {
         return 'product';
     }
-    
+
     public function rules() {
         return [
             [['name', 'price'], 'required'],
@@ -20,10 +20,10 @@ class Product extends ActiveRecord
             [['image_id'], 'integer'],
             [['sku'], 'integer'],
             [['barcode'], 'string'],
-            [['date_added'], 'datetime'],
+            [['date_added'], 'date', 'format' => 'php:Y-m-d H:i:s'],
         ];
     }
-    
+
     public function attributeLabels() {
         return [
             'id' => 'ID',
@@ -37,7 +37,7 @@ class Product extends ActiveRecord
             'date_added' => 'Когда добавлен',
         ];
     }
-    
+
     public function getImage() {
         return $this->hasOne(Image::class, ['id' => 'id']);
     }
