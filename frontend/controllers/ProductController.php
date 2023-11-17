@@ -3,6 +3,7 @@ namespace frontend\controllers;
  
 use Yii;
 use yii\web\Controller;
+use yii\data\Pagination;
 use common\models\Product;
 
 
@@ -10,8 +11,25 @@ class ProductController extends Controller
 {
 
     public function actionIndex(){
+        
+        $query = Product::find();
+         
         $products = Product::find()->all();
-        return $this->render('index', compact('products'));
+        
+        $pagination = new Pagination([
+            'defaultPageSize' => 2,
+            'totalCount' => $query->count(),
+        ]);
+        
+        $products = $query->orderBy('name')
+            ->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+
+        return $this->render('index', [
+            'products' => $products,
+            'pagination' => $pagination,
+        ]);
     }
 
     public function actionCreate($name, $price){

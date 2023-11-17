@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\widgets\LinkPager;
 
 if ($readProduct) {
     echo 'Readed product: id='.$readProduct->id
@@ -23,4 +24,4 @@ if ($readProduct) {
 <?php endforeach; ?>
 </ul>
 
-
+<?= LinkPager::widget(['pagination' => $pagination]) ?>
