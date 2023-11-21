@@ -11,6 +11,10 @@ class Product extends ActiveRecord
 	public static function tableName() {
 		return 'product';
 	}
+	
+	public const STATUS_ACTIVE = 'active';
+	public const STATUS_WAITING = 'waiting';
+	public const STATUS_PRE_ORDER = 'pre_order';
 
 	public function behaviors(){
 		return [
